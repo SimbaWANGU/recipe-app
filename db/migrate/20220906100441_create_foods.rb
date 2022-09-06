@@ -3,9 +3,8 @@ class CreateFoods < ActiveRecord::Migration[7.0]
     create_table :foods do |t|
       t.string :name
       t.string :measurement_unit
-      t.integer :price
-      t.integer :quantity
-      t.integer :user_id
+      t.integer :price, default: 0
+      t.integer :quantity, default: 0
 
       t.timestamps
     end
