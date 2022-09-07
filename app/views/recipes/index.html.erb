@@ -1,0 +1,20 @@
+
+<div class="recipe-list">
+  <div>
+    <%= link_to "New Recipe", recipes_new_path, class:"btn margin" %>
+  </div>
+  <ul>
+    <% if @recipes&.empty? %>
+      <p>No recipes to show!</p>
+      <%else%>
+      <% @recipes&.each do |recipe| %>
+      <li class="recipe-card">
+        <h2><%= link_to recipe.name, recipe_path(recipe.id), class:"recipe-title" %></h2>
+        <p><%= recipe.description %></p>
+        <%= button_to "Delete", recipe , method: :delete%>
+        
+      <li>
+      <% end %>
+    <%end%>
+  </ul>
+</div>
