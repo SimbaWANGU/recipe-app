@@ -13,6 +13,7 @@
     <tr>
       <td><%= f.name %></td>
       <td><%= f.measurement_unit %></td>
+      <td><%= f.quantity %></td>
       <td><%= f.price %></td>
       <td>
         <%= form_with url: "/delete_food/#{f.id}", method: :delete do |form| %>
