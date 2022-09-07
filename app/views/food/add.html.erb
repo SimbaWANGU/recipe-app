@@ -1,0 +1,24 @@
+<div class="add_food_form_container">
+  <%= form_with model: @new_food, url: "/create_food", html: {class: "add_food_form"} do |f| %>
+    
+    <div class="field">
+      <%= f.text_field :name, placeholder: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :measurement_unit, placeholder: "measurement_unit" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :price, placeholder: "price" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :quantity, placeholder: "quantity" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add Food" %>
+    </div>
+  <% end %>
+</div>
