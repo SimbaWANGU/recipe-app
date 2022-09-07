@@ -1,0 +1,25 @@
+<div class="food_container">
+  <a href="/add_food" class="add_food">
+    <p>Add Food</p>
+  </a>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Actions</th>
+    </tr>
+    <% @all_food.each do |f| %>
+    <tr>
+      <td><%= f.name %></td>
+      <td><%= f.measurement_unit %></td>
+      <td><%= f.price %></td>
+      <td>
+        <%= form_with url: "/delete_food/#{f.id}", method: :delete do |form| %>
+          <%= form.submit("Delete") %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
