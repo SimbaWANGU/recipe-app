@@ -1,0 +1,36 @@
+.food_container {
+  display:flex;
+  flex-direction: column;
+}
+
+.add_food {
+  margin: 5vh 15vw 5vh auto;
+  border: 1px solid black;
+  padding: 1px 5px;
+  box-shadow: 3px 5px black;
+  background: none;
+  text-decoration: none;
+  color: black;
+
+  p {
+    margin: 0;
+    padding: 5px 10px;
+  }
+}
+
+table {
+  margin: auto;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
