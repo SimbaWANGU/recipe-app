@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(articles_params)
+    @recipe = Recipe.new(recipes_params)
     if @recipe.save
       redirect_to recipes_path
     else
@@ -22,9 +22,24 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @recipe.update(recipes_params)
+      redirect_to recipes_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @recipe.destroy
+    redirect_to recipes_path
+  end
+
   private
 
-  def articles_params
-    params.require(:article).permit(:title, :content)
+  def recipes_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
