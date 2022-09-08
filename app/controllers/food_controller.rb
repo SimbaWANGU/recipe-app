@@ -8,7 +8,8 @@ class FoodController < ApplicationController
   end
 
   def create
-    @new_food = Food.create(name: params[:name], measurement_unit: params[:measurement_unit], price: params[:price], quantity: params[:quantity], user_id: current_user.id)
+    @new_food = Food.create(name: params[:name], measurement_unit: params[:measurement_unit], price: params[:price],
+                            quantity: params[:quantity], user_id: current_user.id)
     @new_food.save
     redirect_to foods_path
   end
