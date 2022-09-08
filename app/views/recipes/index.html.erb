@@ -1,19 +1,23 @@
 
 <div class="recipe-list">
   <div>
-    <%= link_to "New Recipe", recipes_new_path, class:"btn margin" %>
+    <%= link_to "New Recipe", recipes_new_path, class:"no-underline hover:underline text-purple-700 text-lg" %>
   </div>
-  <ul>
+  <ul class="border-2 border-gray-600">
     <% if @recipes&.empty? %>
       <p>No recipes to show!</p>
       <%else%>
       <% @recipes&.each do |recipe| %>
-      <li class="recipe-card">
-        <h2><%= link_to recipe.name, recipe_path(recipe.id), class:"recipe-title" %></h2>
-        <p><%= recipe.description %></p>
-        <%= button_to "Delete", recipe , method: :delete%>
-        
+      <li class="recipe-card flex divide-x divide-gray-400 m-6 p-8">
+        <div class="w-40">
+        <h2><%= link_to recipe.name, recipe_path(recipe.id), class:"no-underline hover:underline text-blue-500 text-lg" %></h2>
+        <%= button_to "Delete", recipe , method: :delete, class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+        </div>
+        <div class="pl-2">
+          <p><%= recipe.description %></p>
+        </div>
       <li>
+      
       <% end %>
     <%end%>
   </ul>
