@@ -1,5 +1,5 @@
 .food_container {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -25,14 +25,15 @@ table {
   width: 70%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
+td,
+th {
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 
 .add_food_form_container {
@@ -89,7 +90,7 @@ tr:nth-child(even) {
 }
 
 .public_recipe_container {
-  margin: 10px auto ;
+  margin: 10px auto;
   display: flex;
   flex-direction: row;
   border: 1px solid black;
