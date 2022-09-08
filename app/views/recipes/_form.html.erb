@@ -1,0 +1,18 @@
+<%= form_with model: recipe do |form|%>
+<% if recipe.errors.any? %>
+  <h2><%= pluralize(recipe.errors.count, "error")%> prevented article from being saved </h2>
+<ul>
+  <% recipe.errors.each do |error|%>
+    <li><%= error.full_message %></li>
+        <% end %>
+  <% end %>
+<%= form.label :title %>
+</br>
+<%= form.text_field :title %>
+</br>
+<%= form.label :content %>
+</br>
+<%= form.text_area :content %>
+</br>
+<%= form.submit %>
+<% end %>
