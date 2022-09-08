@@ -78,3 +78,34 @@ tr:nth-child(even) {
     width: 60%;
   }
 }
+
+.public_recipes {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin: 10px auto;
+  }
+}
+
+.public_recipe_container {
+  margin: 10px auto ;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 70%;
+}
+
+.public_recipe_details {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 5vw;
+}
+
+.public_recipe_numerics {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 5vw;
+}
