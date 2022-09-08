@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/foods', to: 'food#index'
   get '/add_food', to: 'food#add'
+  get '/public_recipes', to: 'recipes#public_recipes'
   post '/create_food', to: 'food#create'
   delete '/delete_food/:id', to: 'food#delete'
 end
