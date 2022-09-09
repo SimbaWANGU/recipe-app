@@ -1,5 +1,7 @@
+@import "application.tailwind";
+
 .food_container {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -25,14 +27,15 @@ table {
   width: 70%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
+td,
+th {
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 
 .add_food_form_container {
@@ -77,4 +80,35 @@ tr:nth-child(even) {
   button {
     width: 60%;
   }
+}
+
+.public_recipes {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin: 10px auto;
+  }
+}
+
+.public_recipe_container {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 70%;
+}
+
+.public_recipe_details {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 5vw;
+}
+
+.public_recipe_numerics {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 5vw;
 }
