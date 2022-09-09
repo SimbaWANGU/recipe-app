@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/recipes/new', to: 'recipes#new'
   get '/recipes/:id', to: 'recipes#show', as: :recipe
   # Defines the root path route ("/")
-  root to: "users#index"
+  root to: "recipes#index"
   get '/foods', to: 'food#index'
   get '/add_food', to: 'food#add'
   get '/public_recipes', to: 'recipes#public_recipes'
