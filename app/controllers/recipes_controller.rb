@@ -47,13 +47,20 @@ class RecipesController < ApplicationController
     @recipe_shopping = Recipe.find(params[:id]).recipe_foods
     @food = []
     @recipe_shopping.ids.each do |id|
-      @food.push(Food.find_by(id: id))
+      @food.push(Food.find_by(id:))
     end
     @user_food = current_user.food
     @comparison_food = custom_difference(@food, @user_food)
+    @food.each do |a| 
+      puts a.name
+    end
+    puts 'hello'
+    @user_food.each do |a| 
+      puts a.name
+    end
     same_food_result = same_food(@food, @user_food)
-    if same_food_result == 0 
-      return @comparison_food
+    if same_food_result.zero?
+      @comparison_food
     else
       @comparison_food.append(same_food(@food, @user_food))
     end
@@ -66,31 +73,28 @@ class RecipesController < ApplicationController
   end
 
   def custom_difference(all, subset)
-    diff = all.reject { |all_curr|
-      subset.find{ |subset_curr|
+    all.select do |all_curr|
+      subset.find do |subset_curr|
         subset_curr.name == all_curr.name
-      } != nil
-    }
+      end.nil?
+    end
   end
 
-  def same_food(food, user_food)
+  def same_food(_food, _user_food)
     @comparis_food = []
     @user_food.each do |uf|
       @food.each do |rf|
         if uf.name == rf.name
-          if (uf.quantity - rf.quantity) == 0
-            next
-          else
-            uf.quantity = (uf.quantity - rf.quantity).abs
-            @comparis_food.push(uf)
-          end
+          next if (uf.quantity - rf.quantity).zero?
+          uf.quantity = uf.quantity - rf.quantity
+          @comparis_food.push(uf)
         end
       end
     end
-    unless @comparis_food.count == 0 
-      return @comparis_food
+    if @comparis_food.count.zero?
+      0
     else
-      return 0
+      @comparis_food
     end
   end
 end
