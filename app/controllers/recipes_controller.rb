@@ -51,11 +51,11 @@ class RecipesController < ApplicationController
     end
     @user_food = current_user.food
     @comparison_food = custom_difference(@food, @user_food)
-    @food.each do |a| 
+    @food.each do |a|
       puts a.name
     end
     puts 'hello'
-    @user_food.each do |a| 
+    @user_food.each do |a|
       puts a.name
     end
     same_food_result = same_food(@food, @user_food)
@@ -84,11 +84,11 @@ class RecipesController < ApplicationController
     @comparis_food = []
     @user_food.each do |uf|
       @food.each do |rf|
-        if uf.name == rf.name
-          next if (uf.quantity - rf.quantity).zero?
-          uf.quantity = uf.quantity - rf.quantity
-          @comparis_food.push(uf)
-        end
+        next unless uf.name == rf.name
+        next if (uf.quantity - rf.quantity).zero?
+
+        uf.quantity = uf.quantity - rf.quantity
+        @comparis_food.push(uf)
       end
     end
     if @comparis_food.count.zero?
