@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get '/public_recipes', to: 'recipes#public_recipes'
   post '/create_food', to: 'food#create'
   delete '/delete_food/:id', to: 'food#delete'
+
+  get '/shopping_list/:id', to: 'recipes#shopping_list'
 end
