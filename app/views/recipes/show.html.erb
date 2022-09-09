@@ -2,12 +2,12 @@
 
 <%= render @recipe %>
 
-<div class="container mx-auto mt-28 px-5">
+<div class="container mx-auto mt-28 px-5 ">
  
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= link_to "Back to recipes", recipes_path, class:"no-underline hover:underline text-purple-700 text-lg"%>
 
 
-<table class="table-auto min-h-full">
+<table class="table-auto min-h-full border-2 border-gray-600">
   <thead>
     <tr class="divide-x">
       <th class="flex align-left pl-1">Food</th>

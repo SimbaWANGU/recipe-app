@@ -22,7 +22,9 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
 
   def update
     if @recipe.update(recipes_params)
