@@ -15,16 +15,16 @@
   
   <%= form_with url: "/create_recipe", class: "recipe-form flex flex-wrap -mx-3 mb-6" do |form| %>
     <%= form.text_field :name, placeholder: 'Name', class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
-    <br>
-    <%= form.number_field :prepration_time, placeholder: 'Preparation Time', class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
-    <br>
-    <%= form.number_field :cooking_time, placeholder: 'Cooking Time', class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 mt-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
-    <br>
-    <%= form.text_area :description, placeholder: 'Description', class: "text_area mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
-    <br>
-    <%= form.label :public, "Public: true/false " %>
-    <%= form.select :public, options_for_select([true, false]), class:"block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
-    <br>
-    <%= form.submit class: "btn ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
-  <% end %>
+      <br>
+      <%= form.number_field :preparation_time, placeholder: 'Preparation time', class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+      <br>
+      <%= form.number_field :cooking_time, placeholder: 'Cooking time', class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 mt-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+      <br>
+      <%= form.text_area :description, placeholder: 'Description', class: "text_area mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
+      <br>
+      <%= form.label :public, "Public: true/false " %>
+      <%= form.select :public, options_for_select([true, false]), class:"block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+      <br>
+      <%= form.submit class: "btn ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+    <% end %>
 </div>
