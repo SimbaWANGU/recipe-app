@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @user = current_user
+    @recipes = @user&.recipe
   end
 
-  def show
-    @recipe = Recipe.find(params[:id])
-    @quantity = RecipeFood.find_by(recipe_id: params[:id]).quantity
-    @price = Food.find_by(id: RecipeFood.find_by(recipe_id: params[:id]).food_id).price
+  def public_recipes
+    @public_recipes = Recipe.includes(:user).all.where(public: true).order(created_at: :desc)
+    render :public_recipes
   end
 
   def new
@@ -14,16 +14,21 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipes_params)
-    if @recipe.save
-      redirect_to recipes_path
+    recipe = Recipe.create(
+      name: params[:name],
+      preparation_time: params[:prepration_time],
+      cooking_time: params[:cooking_time],
+      description: params[:description],
+      public: params[:public],
+      user_id: current_user.id
+    )
+    puts recipe.name, recipe.preparation_time, recipe.cooking_time, recipe.description, recipe.public, recipe.user_id,
+         recipe.valid?
+    if recipe.save
+      redirect_to recipes_path, notice: 'Recipe created successfully!'
     else
-      render :new, status: :unprocessable_entity
+      render new, status: :unprocessable_entity, alert: 'An error has occurred while creating the new recipe'
     end
-  end
-
-  def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   def update
@@ -34,13 +39,20 @@ class RecipesController < ApplicationController
     end
   end
 
-  def destroy
-    @recipe.destroy
-    redirect_to recipes_path
+  def edit
+    @recipe = Recipe.find(params[:id])
   end
 
-  def public_recipes
-    @public_recipe = Recipe.where(public: 'true').includes(:recipe_foods).order(updated_at: :desc)
+  # GET /recipes/1 or /recipes/1.json
+  def show; end
+
+  def delete
+    @recipe = Recipe.find(params[:id])
+    if @recipe.destroy
+      redirect_to recipes_path, notice: 'Recipe deleted Successfully'
+    else
+      redirect_to root, alert: 'Could not delete recipe'
+    end
   end
 
   def shopping_list
@@ -68,7 +80,7 @@ class RecipesController < ApplicationController
 
   private
 
-  def recipes_params
+  def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 
