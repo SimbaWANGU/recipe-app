@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete 'recipes/:id', to: 'recipes#destroy'
   patch 'recipes/:id', to: 'recipeses#update'
   get 'recipes/:id/edit', to: 'recipes#edit', as: 'edit_recipe'
-  post '/recipes', to: 'recipes#create'
+  post '/create_recipe', to: 'recipes#create'
   get '/recipes', to: 'recipes#index'
   get '/recipes/new', to: 'recipes#new'
   get '/recipes/:id', to: 'recipes#show', as: :recipe
