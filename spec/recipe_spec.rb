@@ -6,7 +6,8 @@ RSpec.describe 'Recipe page', type: :feature do
     @user1.save
     @user2 = User.new(name: 'Kero', email: 'kero@gmail.com', password: 'asdasd')
     @user2.save!
-    @recipe1 = Recipe.new(name: "Pizza", preparation_time: 30, cooking_time: 60, description: "A delicious pizza", public: true, user_id: @user1.id)
+    @recipe1 = Recipe.new(name: 'Pizza', preparation_time: 30, cooking_time: 60, description: 'A delicious pizza',
+                          public: true, user_id: @user1.id)
 
     @recipe1.save!
     visit new_user_session_path
