@@ -10,40 +10,32 @@ RSpec.describe 'Recipe page', type: :feature do
                           public: true, user_id: @user1.id)
 
     @recipe1.save!
-    visit new_user_session_path
-    fill_in 'Email', with: @user1.email
-    fill_in 'Password', with: @user1.password
-    click_button 'Log In'
-    visit recipes_path
+    visit '/users/sign_in'
+    fill_in 'Email', with: 'jerry@gmail.com'
+    fill_in 'Password', with: 'asdasd'
+    click_button 'Log in'
   end
 
-  it 'should be able to see Recipes' do
-    expect(page).to have_content('New Recipe')
+  it 'should be able to see Recipes' do 
+    visit '/recipes'
+    expect(page).to have_content('Recipes')
   end
 
   it 'should be able to redirect to add recipe route' do
+    visit '/recipes'
     click_link 'New Recipe'
-    expect(page).to have_current_path(new_recipe_path)
+    expect(page).to have_current_path(recipes_new_path)
   end
 
-  it 'should be able to see save recipe and click on the recently recipe and enter to recipe details' do
-    click_link 'New Recipe'
-    fill_in 'Name', with: 'Mac and Cheese'
-    fill_in 'Description',
-            with: 'Very yummy mac & cheese'
-    fill_in 'Preparation time', with: '20'
-    fill_in 'Cooking time', with: '40'
+  it 'should be able to see save recipe' do
+    visit '/recipes/new'
+    fill_in 'Name', with: 'Pizza'
+    fill_in 'Preparation time', with: '30'
+    fill_in 'Cooking time', with: '60'
+    fill_in 'Description', with: 'A delicious pizza'
     click_button 'Create'
-    expect(page).to have_content('Mac and Cheese')
+    visit '/recipes'
+    expect(page).to have_content('Pizza')
   end
 
-  it "shouldn't be able to remove if you are not the owner of the recipe" do
-    click_on 'Sign out'
-    visit new_user_session_path
-    fill_in 'Email', with: @user2.email
-    fill_in 'Password', with: @user2.password
-    click_button 'Log In'
-    visit recipes_path
-    expect(page).to_not have_content('Remove')
-  end
 end
