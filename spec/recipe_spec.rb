@@ -16,7 +16,7 @@ RSpec.describe 'Recipe page', type: :feature do
     click_button 'Log in'
   end
 
-  it 'should be able to see Recipes' do 
+  it 'should be able to see Recipes' do
     visit '/recipes'
     expect(page).to have_content('Recipes')
   end
@@ -37,5 +37,4 @@ RSpec.describe 'Recipe page', type: :feature do
     visit '/recipes'
     expect(page).to have_content('Pizza')
   end
-
 end
