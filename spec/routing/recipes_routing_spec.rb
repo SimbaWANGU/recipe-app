@@ -19,7 +19,7 @@ RSpec.describe RecipesController, type: :routing do
     end
 
     it 'routes to #create' do
-      expect(post: '/recipes').to route_to('recipes#create')
+      expect(post: '/create_recipe').to route_to('recipes#create')
     end
 
     it 'routes to #update via PATCH' do

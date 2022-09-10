@@ -33,7 +33,7 @@ RSpec.describe 'Recipe page', type: :feature do
     fill_in 'Preparation time', with: '30'
     fill_in 'Cooking time', with: '60'
     fill_in 'Description', with: 'A delicious pizza'
-    click_button 'Create'
+    click_button 'Add Recipe'
     visit '/recipes'
     expect(page).to have_content('Pizza')
   end
