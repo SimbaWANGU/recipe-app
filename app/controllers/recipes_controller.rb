@@ -17,12 +17,13 @@ class RecipesController < ApplicationController
     recipe = Recipe.create(
       name: params[:name],
       preparation_time: params[:prepration_time],
-      cooking_time: params[:cooking_time], 
-      description: params[:description], 
-      public: params[:public], 
+      cooking_time: params[:cooking_time],
+      description: params[:description],
+      public: params[:public],
       user_id: current_user.id
     )
-    puts recipe.name, recipe.preparation_time, recipe.cooking_time, recipe.description, recipe.public, recipe.user_id, recipe.valid?
+    puts recipe.name, recipe.preparation_time, recipe.cooking_time, recipe.description, recipe.public, recipe.user_id,
+         recipe.valid?
     if recipe.save
       redirect_to recipes_path, notice: 'Recipe created successfully!'
     else
