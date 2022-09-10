@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   delete 'recipes/:id', to: 'recipes#destroy'
-  patch 'recipes/:id', to: 'recipeses#update'
+  patch 'recipes/:id', to: 'recipes#update'
   get 'recipes/:id/edit', to: 'recipes#edit', as: 'edit_recipe'
   post '/create_recipe', to: 'recipes#create'
   get '/recipes', to: 'recipes#index'

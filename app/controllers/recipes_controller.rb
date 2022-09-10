@@ -54,7 +54,7 @@ class RecipesController < ApplicationController
     end
   end
 
-def shopping_list
+  def shopping_list
     @recipe_shopping = Recipe.find(params[:id]).recipe_foods
     @food = []
     @recipe_shopping.ids.each do |id|
@@ -78,7 +78,7 @@ def shopping_list
   end
 
   private
-  
+
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
