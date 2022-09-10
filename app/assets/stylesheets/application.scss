@@ -1,0 +1,114 @@
+@import "application.tailwind";
+
+.food_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_food {
+  margin: 5vh 15vw 5vh auto;
+  border: 1px solid black;
+  padding: 1px 5px;
+  box-shadow: 3px 5px black;
+  background: none;
+  text-decoration: none;
+  color: black;
+
+  p {
+    margin: 0;
+    padding: 5px 10px;
+  }
+}
+
+table {
+  margin: auto;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.add_food_form_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_food_form {
+  margin: auto;
+  width: 60%;
+
+  input {
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  input#food_name {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  input#food_measurement_unit {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  input#food_price {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  input#food_quantity {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  button {
+    width: 60%;
+  }
+}
+
+.public_recipes {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin: 10px auto;
+  }
+}
+
+.public_recipe_container {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 70%;
+}
+
+.public_recipe_details {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 5vw;
+}
+
+.public_recipe_numerics {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 5vw;
+}
