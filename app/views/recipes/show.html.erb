@@ -5,6 +5,7 @@
 <div class="container mx-auto mt-28 px-5 ">
  
   <%= link_to "Back to recipes", recipes_path, class:"no-underline hover:underline text-purple-700 text-lg"%>
+  <%= link_to "Generate Shopping List", "/shopping_list/#{@recipe.id}", class:"no-underline hover:underline text-purple-700 text-lg"%>
 
 
 <table class="table-auto min-h-full border-2 border-gray-600">
