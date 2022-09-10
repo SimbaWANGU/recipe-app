@@ -4,11 +4,11 @@ RSpec.describe 'Food page', type: :feature do
   before :each do
     @user = User.new(name: 'Chris', email: 'chris@gmail.com', password: 'asdasd')
     @user.save
-    visit user_session_path
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
-    click_on 'Log In'
-    visit root_path
+   
+  visit '/users/sign_in'
+    fill_in 'Email', with: 'chris@gmail.com'
+    fill_in 'Password', with: 'asdasd'
+    click_button 'Log in'
   end
 
   it 'should be able to see Foods' do
@@ -16,16 +16,19 @@ RSpec.describe 'Food page', type: :feature do
   end
 
   it 'should be able to redirect to add food route' do
-    click_link 'New food'
-    expect(page).to have_current_path(new_food_path)
+    visit '/foods'	
+    click_link 'Add Food'
+    expect(page).to have_current_path( add_food_path)
   end
 
   it 'should be able to see save food' do
-    click_link 'New food'
-    fill_in 'Name', with: 'Cherries'
-    fill_in 'Measurement unit', with: 'g'
-    fill_in 'Price', with: '40'
-    click_button 'Create'
-    expect(page).to have_content('Cherries')
+    visit '/add_food'
+    fill_in 'name', with: 'Pizza'
+    fill_in 'measurement_unit', with: '300'
+    fill_in 'price', with: '10'
+    fill_in 'quantity', with: '20'
+    click_button 'Add Food'
+    visit '/foods'
+    expect(page).to have_content('Pizza')
   end
 end
